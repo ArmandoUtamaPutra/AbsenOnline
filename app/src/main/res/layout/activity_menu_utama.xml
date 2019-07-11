@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+
+    <GridLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:layout_margin="20dp"
+
+
+
+
+    >
+        <ImageView android:layout_width="130dp"
+                   android:layout_height="130dp"
+                   android:src="@drawable/absensi"
+                   android:layout_margin="20dp"
+
+
+        />
+        <ImageView android:layout_width="130dp"
+                   android:layout_height="130dp"
+                   android:layout_margin="20dp"
+                   android:src="@drawable/absensi"
+                   android:layout_gravity="right"/>
+
+        <ImageView android:layout_width="130dp"
+                   android:layout_height="130dp"
+                   android:src="@drawable/absensi"
+                   android:layout_margin="20dp"
+
+
+        />
+        <ImageView android:layout_width="130dp"
+                   android:layout_height="130dp"
+                   android:layout_margin="20dp"
+                   android:src="@drawable/absensi"
+                   android:layout_gravity="right"/>
+
+    </GridLayout>
+
+</RelativeLayout>
