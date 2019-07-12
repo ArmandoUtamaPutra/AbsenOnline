@@ -3,7 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="200dp"
+        android:background="@drawable/bckglay"
 
 >
 
@@ -12,87 +12,97 @@
                   android:focusableInTouchMode="true"
                   android:orientation="vertical"
                   android:padding="20dp"
+                  android:gravity="center"
     >
+        <ImageView android:layout_width="100dp"
+                   android:layout_height="100dp"
+                   android:background="@drawable/attendance"
+        />
+
         <TextView android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:text="Absen Online"
                   android:textAlignment="center"
                   android:textStyle="bold"
                   android:textSize="25dp"
+                  android:textColor="#fff"
         />
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
-                      android:orientation="horizontal"
+                      android:orientation="vertical"
         >
-            <TextView android:layout_width="120dp"
-                      android:layout_height="wrap_content"
-                      android:text="Nip"
-                      android:padding="20dp"
+            <TextView
+                    android:id="@+id/tanggalabsen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="20 January 2019"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
+                    android:inputType="date"
+                    android:textSize="18dp"/>
+            <DigitalClock
+                    android:id="@+id/clockl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
             />
-            <EditText android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Anda Sudah Absen Masuk"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
+                    android:textSize="15dp"
+                    android:id="@+id/centang1"
+                    android:visibility="gone"
             />
-
-        </LinearLayout>
-        <LinearLayout android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:orientation="horizontal"
-        >
-            <TextView android:layout_width="120dp"
-                      android:layout_height="wrap_content"
-                      android:text="Nama"
-                      android:padding="20dp"
+            <TextView
+                    android:id="@+id/centang2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Anda Sudah Absen Pulang"
+                    android:textAlignment="center"
+                    android:textColor="#fff"
+                    android:textSize="15dp"
+                    android:visibility="gone"
             />
-            <EditText android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-
-            />
-
-        </LinearLayout>
-        <LinearLayout android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:orientation="horizontal"
-        >
-            <TextView android:layout_width="120dp"
-                      android:layout_height="wrap_content"
-                      android:text="Kelas"
-                      android:padding="20dp"
-            />
-            <EditText android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-
-            />
-
-        </LinearLayout>
-        <LinearLayout android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:orientation="horizontal">
-
-            <TextView android:layout_width="120dp"
-                      android:layout_height="wrap_content"
-                      android:text="Keterangan"
-                      android:padding="20dp"
-            />
-            <EditText android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-
-            />
-
 
 
         </LinearLayout>
 
         <Button android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Simpan"
-                android:backgroundTint="#4287f5"
+                android:text="Absen Masuk"
+                android:id="@+id/absenmasuk"
+                android:backgroundTint="#001433"
                 android:textColor="#fff"
                 android:layout_margin="20dp"
                 android:background="@drawable/rounded_button"
+        />
+
+        <Button android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Absen Pulang"
+                android:backgroundTint="#001433"
+                android:textColor="#fff"
+                android:layout_margin="20dp"
+                android:background="@drawable/rounded_button"
+                android:id="@+id/absenpulang"
+                android:visibility="gone"
 
         />
 
+        <Button android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Absen Pulang"
+                android:backgroundTint="#5F5D5D"
+                android:textColor="#fff"
+                android:layout_margin="20dp"
+                android:background="@drawable/rounded_button"
+                android:id="@+id/centang3"
+                android:visibility="gone"
+
+        />
 
 
     </LinearLayout>
