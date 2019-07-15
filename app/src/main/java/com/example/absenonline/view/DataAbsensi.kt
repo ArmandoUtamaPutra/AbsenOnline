@@ -1,4 +1,4 @@
-package com.example.absenonline.model
+package com.example.absenonline.view
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -6,10 +6,8 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.example.absenonline.R
 import kotlinx.android.synthetic.main.absen.*
-import java.text.DateFormat
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
-import java.util.*
 
 class DataAbsensi : AppCompatActivity (){
 

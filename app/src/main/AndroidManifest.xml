@@ -16,12 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".Login"/>
-        <activity android:name=".model.DataMenuUtama"/>
-        <activity android:name=".model.DataAbout"/>
-        <activity android:name=".model.DataGallery"/>
-        <activity android:name=".model.DataAbsensi"/>
-        <activity android:name=".model.DataHistoryAbsen"/>
+        <activity android:name=".view.Login"/>
+        <activity android:name=".view.DataMenuUtama"/>
+        <activity android:name=".view.DataAbout"/>
+        <activity android:name=".view.DataGallery"/>
+        <activity android:name="com.example.absenonline.view.DataAbsensi"/>
+        <activity android:name=".view.DataHistoryAbsen"/>
     </application>
 
 </manifest>

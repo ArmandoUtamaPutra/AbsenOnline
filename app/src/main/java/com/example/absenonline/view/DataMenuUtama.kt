@@ -1,6 +1,5 @@
-package com.example.absenonline.model
+package com.example.absenonline.view
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -11,8 +10,6 @@ import com.example.absenonline.R
 import com.example.absenonline.adapter.MenuUtamaAdapter
 import kotlinx.android.synthetic.main.activity_menu_utama.*
 import kotlinx.android.synthetic.main.layout_adapter.view.*
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 
 class DataMenuUtama : AppCompatActivity (){
 

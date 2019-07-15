@@ -5,7 +5,7 @@
               android:layout_height="match_parent"
               android:gravity="center"
               android:background="@drawable/bckglay"
-              tools:context=".model.DataMenuUtama">
+              tools:context=".view.DataMenuUtama">
 
     <LinearLayout
             android:orientation="vertical"
