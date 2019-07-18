@@ -22,7 +22,7 @@ class DataMenuUtama : AppCompatActivity (){
 
 
 
-        // load foods
+        // load Datamenu
         menuAdapter.add(MenuUtamaAdapter("Absen", R.drawable.attendance))
         menuAdapter.add(MenuUtamaAdapter("About Company ", R.drawable.factory))
         menuAdapter.add(MenuUtamaAdapter("Gallery", R.drawable.gallery))

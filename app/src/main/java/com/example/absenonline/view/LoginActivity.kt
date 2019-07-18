@@ -5,15 +5,17 @@ import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log.w
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.example.absenonline.MainActivity
 import com.example.absenonline.R
 import com.example.absenonline.data.SharePref
 import com.example.absenonline.service.Const
 import com.example.absenonline.viewmodel.ViewModelAbsensi
 
-class Login : AppCompatActivity (){
+class LoginActivity : AppCompatActivity (){
     var etNik : EditText? = null
     var btnLogin : Button? = null
     internal  lateinit var set: SharePref
@@ -29,19 +31,18 @@ class Login : AppCompatActivity (){
         val viewModel = ViewModelProviders.of(this).get(ViewModelAbsensi::class.java)
         viewModel.dataAbsensi!!.observeForever{
             btnLogin!!.setOnClickListener {
-                xx ->
+                xx->
                 for (data in it!!){
+                    w("Y","$data")
                     val login = etNik!!.text.toString()
                     val id = data.id
                     val nik = data.nik
-                    val peserta = data.nama_peserta
-                    if (login ==nik){
-                        if (peserta == "0"){
+                    if (login == nik){
                             Toast.makeText(this, "Tes", Toast.LENGTH_SHORT).show()
                             set.updateSetting(Const.PREF_MY_ID, id)
-                            startActivity(Intent(this,))
-
-                        }
+                            startActivity(Intent(this, DataMenuUtama::class.java))
+                    }else{
+                        Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
                     }
                 }
             }

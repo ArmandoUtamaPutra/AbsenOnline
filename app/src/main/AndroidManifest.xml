@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.absenonline">
-
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
@@ -16,12 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".view.Login"/>
+        <activity android:name=".view.LoginActivity"/>
         <activity android:name=".view.DataMenuUtama"/>
         <activity android:name=".view.DataAbout"/>
         <activity android:name=".view.DataGallery"/>
         <activity android:name="com.example.absenonline.view.DataAbsensi"/>
         <activity android:name=".view.DataHistoryAbsen"/>
+
     </application>
 
 </manifest>
