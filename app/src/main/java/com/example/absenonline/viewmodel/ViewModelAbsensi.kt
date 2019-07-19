@@ -3,6 +3,7 @@ package com.example.absenonline.viewmodel
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
+import android.util.Log.e
 import com.example.absenonline.model.AbsensiModel
 import com.example.absenonline.model.PesertaModel
 import com.example.absenonline.service.ApiOnly
@@ -30,9 +31,11 @@ class ViewModelAbsensi : ViewModel() {
         val getData = apiData.getDataPeserta()
         getData.enqueue(object : Callback<List<PesertaModel>>{
             override fun onFailure(call: Call<List<PesertaModel>>, t: Throwable) {
+                e("HAHAHAH", "Error ${t.localizedMessage}")
             }
 
             override fun onResponse(call: Call<List<PesertaModel>>, response: Response<List<PesertaModel>>) {
+                e("HAHAHAH", "INI DATANYA BOS ${response.body()}")
                 listAbsensi!!.value = response.body()
             }
 

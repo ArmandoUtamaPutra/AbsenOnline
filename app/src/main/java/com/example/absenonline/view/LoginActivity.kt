@@ -5,6 +5,7 @@ import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log.e
 import android.util.Log.w
 import android.widget.Button
 import android.widget.EditText
@@ -18,6 +19,9 @@ import com.example.absenonline.viewmodel.ViewModelAbsensi
 class LoginActivity : AppCompatActivity (){
     var etNik : EditText? = null
     var btnLogin : Button? = null
+    var nik : String?= null
+    var id : String?= null
+    var login : String? = null
     internal  lateinit var set: SharePref
 
 
@@ -29,24 +33,26 @@ class LoginActivity : AppCompatActivity (){
         set = SharePref(this)
 
         val viewModel = ViewModelProviders.of(this).get(ViewModelAbsensi::class.java)
-        viewModel.dataAbsensi!!.observeForever{
-            btnLogin!!.setOnClickListener {
-                xx->
-                for (data in it!!){
-                    w("Y","$data")
-                    val login = etNik!!.text.toString()
-                    val id = data.id
-                    val nik = data.nik
-                    if (login == nik){
-                            Toast.makeText(this, "Tes", Toast.LENGTH_SHORT).show()
-                            set.updateSetting(Const.PREF_MY_ID, id)
-                            startActivity(Intent(this, DataMenuUtama::class.java))
-                    }else{
-                        Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
+        btnLogin!!.setOnClickListener {
+            login = etNik!!.text.toString()
+            viewModel.dataAbsensi.observeForever {
+                Toast.makeText(this, "login = $login", Toast.LENGTH_SHORT).show()
+                for (data in it!!) {
+                    w("Y", "$data")
+                    nik = data.nik
+                    Toast.makeText(this, "nik = $nik", Toast.LENGTH_SHORT).show()
+                    if (login.equals(nik)) {
+                        id = data.id
+                        set.updateSetting(Const.PREF_MY_ID, id!!)
+                        startActivity(Intent(this, DataMenuUtama::class.java))
+                        break
+                    } else {
+                        e("ERRORRRR", "Error aduh error")
+                        Toast.makeText(this, "data tidak terload", Toast.LENGTH_SHORT).show()
+
                     }
                 }
             }
         }
-
     }
 }
