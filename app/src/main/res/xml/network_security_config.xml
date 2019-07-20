@@ -3,4 +3,8 @@
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="true">192.168.43.192</domain>
     </domain-config>
+<<<<<<< Updated upstream
 </network-security-config>
+=======
+</network-security-config>
+>>>>>>> Stashed changes

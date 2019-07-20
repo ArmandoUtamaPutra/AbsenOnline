@@ -6,10 +6,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.*
 import android.widget.BaseAdapter
-import android.widget.Toast
 import com.example.absenonline.R
 import com.example.absenonline.adapter.MenuUtamaAdapter
-import com.example.absenonline.data.SharePref
 import kotlinx.android.synthetic.main.activity_menu_utama.*
 import kotlinx.android.synthetic.main.layout_adapter.view.*
 
@@ -21,7 +19,6 @@ class DataMenuUtama : AppCompatActivity (){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu_utama)
-
 
 
 
@@ -50,20 +47,16 @@ class DataMenuUtama : AppCompatActivity (){
 //                Toast.makeText(this, "Anda memilih: 3", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, DataHistoryAbsen::class.java)
                 startActivity(intent)
-
             }
         }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        getMenuInflater().inflate(R.menu.home_menu, menu)
+        getMenuInflater().inflate(R.menu.home_menu, menu);
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        if (item!!.title == "Logout") {
-            Toast.makeText(this, "Ini toast logout.", Toast.LENGTH_SHORT)
-        }
         startActivity(Intent(this, DataMenuUtama::class.java))
         return super.onOptionsItemSelected(item)
     }
@@ -100,7 +93,6 @@ class DataMenuUtama : AppCompatActivity (){
 
             return menuView
         }
-
     }
 
 }
