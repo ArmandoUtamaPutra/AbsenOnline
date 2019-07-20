@@ -19,6 +19,7 @@ import com.example.absenonline.viewmodel.ViewModelAbsensi
 class LoginActivity : AppCompatActivity (){
     var etNik : EditText? = null
     var btnLogin : Button? = null
+    var nama : String? = null
     var nik : String?= null
     var id : String?= null
     var login : String? = null
@@ -42,8 +43,10 @@ class LoginActivity : AppCompatActivity (){
                     nik = data.nik
                     Toast.makeText(this, "nik = $nik", Toast.LENGTH_SHORT).show()
                     if (login.equals(nik)) {
-                        id = data.id
-                        set.updateSetting(Const.PREF_MY_ID, id!!)
+//                        id = data.id
+                        nama = data.nama
+                        set.setNAMA(nama!!)
+                        set.setNIK(nik!!)
                         startActivity(Intent(this, DataMenuUtama::class.java))
                         break
                     } else {

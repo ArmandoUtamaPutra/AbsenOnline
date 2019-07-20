@@ -7,7 +7,7 @@ class PesertaModel {
     lateinit var id: String
     @SerializedName("nik")
     lateinit var nik: String
-    @SerializedName("nama")
+    @SerializedName("name")
     lateinit var nama: String
     constructor(){}
     constructor(id: String, nik: String, nama: String){
