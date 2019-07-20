@@ -9,7 +9,8 @@
             android:title="ChangePassword"/>
 
     <item
-            android:id="@+id/nav_informasi"
+            android:id="@+id/nav_logout"
             android:title="Logout"/>
+
 </menu>
 
