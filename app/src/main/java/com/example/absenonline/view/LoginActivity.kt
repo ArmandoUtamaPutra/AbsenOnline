@@ -42,11 +42,12 @@ class LoginActivity : AppCompatActivity (){
                     w("Y", "$data")
                     nik = data.nik
                     Toast.makeText(this, "nik = $nik", Toast.LENGTH_SHORT).show()
-                    if (login.equals(nik)) {
+                    if (login == nik) {
 //                        id = data.id
+                        val id = data.id
                         nama = data.nama
                         set.setNAMA(nama!!)
-                        set.setNIK(nik!!)
+                        set.setNIK(id)
                         startActivity(Intent(this, DataMenuUtama::class.java))
                         break
                     } else {

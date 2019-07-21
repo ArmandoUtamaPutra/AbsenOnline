@@ -3,6 +3,8 @@ package com.example.absenonline.view
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log.i
+import android.util.Log.v
 import android.view.View
 import android.widget.Toast
 import com.example.absenonline.R
@@ -48,10 +50,18 @@ class DataAbsensi : AppCompatActivity (){
         absenmasuk.setOnClickListener {
             val nik = shared!!.getNik()
             val nama = shared!!.getNama()
-            absenPeserta!!.absenMasuk(nik,nama,getJamOk(),getTimeOk())
+            val jam = getTimeOk().toString()
+            val w = getJamOk().toString()
+            i("taf", "$jam")
+            i("a", "$w")
+            absenPeserta!!.absenMasuk("${nik}","${nama}","${w}","${jam}")
                 .enqueue(object :Callback<AbsensiModel> {
                     override fun onFailure(call: Call<AbsensiModel>, t: Throwable) {
-                        Toast.makeText(this@DataAbsensi,"Gagal absensi" , Toast.LENGTH_SHORT).show()
+                        absenpulang.visibility = View.VISIBLE
+                        absenmasuk.visibility = View.GONE
+                        centang1.visibility = View.VISIBLE
+                        centang2.visibility = View.GONE
+                        shared!!.saveStatusAbsen(true)
                     }
 
                     override fun onResponse(call: Call<AbsensiModel>, response: Response<AbsensiModel>) {
@@ -65,11 +75,33 @@ class DataAbsensi : AppCompatActivity (){
                 })
         }
         absenpulang.setOnClickListener {
-            absenmasuk.visibility = View.GONE
-            absenpulang.visibility = View.GONE
-            centang2.visibility = View.VISIBLE
-            centang1.visibility = View.GONE
+            //nah dibagian sini tambahkan kode yg sama kayak yg atas,
+            //cuman isinya yg absen pulang
+            //kodenya sama kayak yg absen masuk isinya aja yg beda
+            //nnti samain kayak yg ane blok ya kodenya terus nte coba jalanin
+            val nik = shared!!.getNik()
+            val jam = getTimeOk() // gaperlu pake toString itu udh string
+            val w = getJamOk()
+            i("taf", "$jam")
+            i("a", "$w")
+            //lanjutin isinya
+            absenPeserta!!.absenPulang("${nik}","${w}", "${jam}").enqueue(object : Callback<AbsensiModel>{
+                override fun onFailure(call: Call<AbsensiModel>, t: Throwable) {
 
+                }
+
+                override fun onResponse(call: Call<AbsensiModel>, response: Response<AbsensiModel>) {
+                    absenpulang.visibility = View.GONE
+                    absenmasuk.visibility = View.GONE
+                    centang1.visibility = View.VISIBLE // ini buat apa do?
+                    centang2.visibility = View.GONE
+                    shared!!.saveStatusAbsen(false)
+                }
+            })
+            //RUN do
+            //oke pak
+            // kalo force close run di hp nte aja yak kan di emulator gabisa ngambil jam
+            //oiya ya pak okee ;v
 
         }
 
@@ -85,7 +117,7 @@ class DataAbsensi : AppCompatActivity (){
     @SuppressLint("NewApi")
     fun getJamOk() : String{
         val currentTime = LocalDateTime.now()
-        val formatter = DateTimeFormatter.ofPattern("HH:mm:ss/yyyy-MM-dd")
+        val formatter = DateTimeFormatter.ofPattern("HH:mm:ss")
         val dateOk = currentTime.format(formatter)
         return dateOk
     }

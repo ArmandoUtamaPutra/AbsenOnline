@@ -14,14 +14,15 @@ interface ApiOnly {
     @GET("sign_in")
     fun getDataPeserta(): Call<List<PesertaModel>>
 
-    @POST("absensi_pulang")
+    @POST("absensi_pulang") // ini buat absen pulang
     @FormUrlEncoded
     fun absenPulang(@Field("id_peserta") id : String,
-                  @Field("jam_pulang") jam_pulang : String)
+                  @Field("jam_pulang") jam_pulang : String,
+                    @Field("date") date : String) : Call<AbsensiModel>
     @POST("absensi_masuk")
     @FormUrlEncoded
-    fun absenMasuk(@Field("id_absensi")id: String,
-                   @Field("nama") nama:String,
+    fun absenMasuk(@Field("id_peserta")id_peserta: String,
+                   @Field("name") name:String,
                    @Field("jam_masuk") jam_masuk :String,
                    @Field("date") date : String) : Call<AbsensiModel>
 
